@@ -1,0 +1,15 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <input #newTask matInput placeholder="Add a Task" value=""
+    (keyup.enter)="addTask(newTask.value)"
+    (blur)="addTask(newTask.value); newTask.value='' ">
+  </mat-form-field>
+</form>
+
+<button color="primary" mat-raised-button (click)="addTask(newTask.value)">Add Task</button>
+
+<mat-divider></mat-divider>
+
+<mat-list role="My Tasks" >
+  <mat-list-item role="listitem" *ngFor="let tasks of taskList">{{tasks}}</mat-list-item>
+</mat-list>
